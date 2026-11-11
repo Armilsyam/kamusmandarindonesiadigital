@@ -135,7 +135,7 @@ const strip=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const nM=s=>strip(s).replace(/[q'’\-]/g,'').replace(/\s+/g,' ').trim();
 const nI=s=>strip(s).replace(/\s+/g,' ').trim();
 const rx=q=>q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-const wre=q=>new RegExp('(^|[^a-z0-9])'+rx(q));
+const wre=q=>new RegExp('(^|[\u061C\u200E\u200F\u202A-\u202E\u2066-\u2069])'+rx(q));
 D.forEach((e,i)=>{
   e.i=i; e.m=e.h.split(',').map(nM);
   const ds=e.s.map(s=>s.d||'');
